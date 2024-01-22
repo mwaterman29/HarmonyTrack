@@ -1,0 +1,34 @@
+{
+    "feelings": [
+        {
+            "name": "bad",
+            "value": 25,
+            "parent": null
+        },
+        {
+            "name": "good",
+            "value": 75,
+            "parent": null
+        },
+        {
+            "name": "great",
+            "value": 85,
+            "parent": "good"
+        },
+        {
+            "name": "fine",
+            "value": 65,
+            "parent": "good"
+        },
+        {
+            "name": "terrible",
+            "value": 15,
+            "parent": "bad"
+        },
+        {
+            "name": "sad",
+            "value": 35,
+            "parent": "bad"
+        }
+    ]
+}

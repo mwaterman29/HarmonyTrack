@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Menu, MenuItem, SubMenu } from "@spaceymonk/react-radial-menu";
+import feelingsData from '../data/feelings.json';
 
 function FeelingsWheel() {
   const [show, setShow] = React.useState(true);
@@ -10,7 +11,7 @@ function FeelingsWheel() {
   const handleItemClick = (event: any, index: any, data: any) => {
     console.log(event.clientX, event.clientY)
     console.log(`[MenuItem] ${data} clicked`);
-    setShow(false); // you should handle your menu visibility yourself
+    //setShow(false); // you should handle your menu visibility yourself
   };
   const handleSubMenuClick = (event: any, index: any, data: any) => {
     console.log(`[SubMenu] ${data} clicked`);
@@ -55,6 +56,13 @@ function FeelingsWheel() {
     return () => window.removeEventListener('resize', updatePosition);
   }, []);
 
+  const feelings = feelingsData.feelings;
+  const firstOrder =  feelings.filter((feeling:any) => feeling.parent === null);
+  const secondOrder = feelings.filter((feeling:any) => firstOrder.find(first => first.name === feeling.parent));
+
+  //console.log(firstOrder);
+  //console.log(secondOrder);
+
   return (
     <div className="flex h-full w-full " id="feelingsWheelContainer" onClick={(e) => {console.log(e.clientX, e.clientY)}}>
         <Menu
@@ -66,41 +74,35 @@ function FeelingsWheel() {
             animation={["fade", "scale"]}
             animationTimeout={150}
         >
-            {/* Populate your menu here */}
-            <MenuItem onItemClick={handleItemClick} data="1. Item">
-            1. Item
-            </MenuItem>
-            <SubMenu
-            onDisplayClick={handleDisplayClick}
-            onItemClick={handleSubMenuClick}
-            itemView="2. Sub Menu"
-            data="2. Sub Menu"
-            displayPosition="bottom"
-            >
-            <MenuItem onItemClick={handleItemClick} data="2.1. Item">
-                2.1. Item
-            </MenuItem>
-            <MenuItem onItemClick={handleItemClick} data="2.2. Item">
-                2.2. Item
-            </MenuItem>
-            <MenuItem onItemClick={handleItemClick} data="2.3. Item">
-                2.3. Item
-            </MenuItem>
-            <SubMenu
-                onDisplayClick={handleDisplayClick}
-                onItemClick={handleSubMenuClick}
-                itemView="2.4. Sub Menu"
-                data="2.4. Sub Menu"
-                displayPosition="bottom"
-            >
-                <MenuItem onItemClick={handleItemClick} data="2.4.1. Item">
-                2.4.1. Item
-                </MenuItem>
-                <MenuItem onItemClick={handleItemClick} data="2.4.2. Item">
-                2.4.2. Item
-                </MenuItem>
-            </SubMenu>
-            </SubMenu>
+          {
+            firstOrder.map((feeling:any) => {
+              const subFeelings = secondOrder.filter((secondFeeling:any) => secondFeeling.parent === feeling.name);
+              return (
+                <SubMenu
+                  key={feeling.name}
+                  data={feeling.name}
+                  itemView={<p key={feeling.name + "_display"}>{feeling.name}</p>}
+                  onItemClick={handleSubMenuClick}
+                  onDisplayClick={handleDisplayClick}
+                  displayPosition="bottom"
+                >
+                  {
+                    subFeelings.map((subFeeling:any) => {
+                      return (
+                        <MenuItem
+                          key={subFeeling.id}
+                          data={subFeeling.name}
+                          onItemClick={handleItemClick}
+                        >
+                          {<p key={subFeeling.name + "_display"}>{subFeeling.name}</p>}
+                        </MenuItem>
+                      )
+                    })
+                  }
+                </SubMenu>
+              )
+            })
+          }
         </Menu>
     </div>
   );
