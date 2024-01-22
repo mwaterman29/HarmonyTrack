@@ -90,7 +90,7 @@ function FeelingsWheel() {
                     subFeelings.map((subFeeling:any) => {
                       return (
                         <MenuItem
-                          key={subFeeling.id}
+                          key={subFeeling.name}
                           data={subFeeling.name}
                           onItemClick={handleItemClick}
                         >
