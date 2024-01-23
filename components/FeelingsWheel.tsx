@@ -9,9 +9,27 @@ function FeelingsWheel() {
 
   // You can also use separate handler for each item
   const handleItemClick = (event: any, index: any, data: any) => {
+
+    /*
     console.log(event.clientX, event.clientY)
+    console.log());
     console.log(`[MenuItem] ${data} clicked`);
     //setShow(false); // you should handle your menu visibility yourself
+    */
+    const feeling = secondOrder.find((feeling:any) => feeling.name === data);
+    if(!feeling)
+      return;
+
+    fetch('/api/feelings', {
+      method: 'POST',
+      body: JSON.stringify({
+        feeling: feeling.name,
+        value: feeling.value
+      })
+    }).then(async (response) => {
+      const json = await response.json();
+      console.log(json);
+    });
   };
   const handleSubMenuClick = (event: any, index: any, data: any) => {
     console.log(`[SubMenu] ${data} clicked`);
