@@ -9,7 +9,7 @@ const clientId = process.env.GOOGLE_CLIENT_ID as string;
 const clientSecret = process.env.GOOGLE_CLIENT_SECRET as string;
 
 
-const handler = NextAuth({
+const authOptions = {
   providers: [
     GoogleProvider({
       clientId,
@@ -17,6 +17,17 @@ const handler = NextAuth({
     }),
   ],
   adapter: PrismaAdapter(prisma),
-})
+  callbacks: {
+    session: async ({ session, user }: { session: any, user: any }) => {
+        session.user.id = user.id;
+    
+        return session
+    },
+  }
+};
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST }
+
+export { authOptions };
