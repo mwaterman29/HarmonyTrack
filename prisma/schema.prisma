@@ -36,11 +36,12 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String       @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?      @unique
   emailVerified DateTime?
   image         String?
+  FeelingStyle  FeelingStyle @default(WHEEL)
   accounts      Account[]
   sessions      Session[]
   Feeling       Feeling[]
@@ -62,4 +63,10 @@ model Feeling {
   time    DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum FeelingStyle {
+  WHEEL
+  EMOJI
+  INPUT
 }
