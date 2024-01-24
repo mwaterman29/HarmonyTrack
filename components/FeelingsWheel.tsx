@@ -1,3 +1,5 @@
+"use client"
+
 import React, { useEffect } from "react";
 import { Menu, MenuItem, SubMenu } from "@spaceymonk/react-radial-menu";
 import feelingsData from '../data/feelings.json';

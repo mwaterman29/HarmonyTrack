@@ -1,5 +1,3 @@
-"use client"
-
 import FeelingsWheel from "@/components/FeelingsWheel";
 import Image from "next/image";
 import UserControl from "@/components/UserControl";
