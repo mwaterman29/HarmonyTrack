@@ -14,8 +14,8 @@ const UserControl = () => {
     if(status == 'loading')
     {
         return (
-            <div>
-                loading
+            <div className='min-w-24 border-2 border-white'>
+                 
             </div>
         )
     }
@@ -23,7 +23,9 @@ const UserControl = () => {
     {
         return (
             <div>
-                not signed in pholder
+                <button className='border p-2 px-8 border-white' onClick={() => {signIn()}}>
+                    Sign In
+                </button>
             </div>
         )
     }
@@ -34,16 +36,13 @@ const UserControl = () => {
                     {({ open }) => (
                         <>
                             <Menu.Button className='flex h-full items-center justify-center transition duration-150 ease-in-out'>
-                                {session.user?.image && (
-
-                                    <div className='flex flex-row px-1 border-2 border-vrtex-black dark:border-vrtex-white hover:text-gray-500 active:bg-gray-50 active:text-gray-800'>
+                                    <div className='flex flex-row px-1 border-2 hover:text-gray-500 active:bg-gray-50 active:text-gray-800'>
                                         <p className='flex items-center px-3'>
                                             {
-                                                session.user.name
+                                                session?.user?.name
                                             }
                                         </p>
                                     </div>
-                                )}
                             </Menu.Button>
 
                             <Transition
