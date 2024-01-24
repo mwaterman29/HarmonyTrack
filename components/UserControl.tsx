@@ -14,7 +14,7 @@ const UserControl = () => {
     if(status == 'loading')
     {
         return (
-            <div className='min-w-24 border-2 border-white'>
+            <div className='min-w-24 border-2 p-3 px-12 border-white'>
                  
             </div>
         )

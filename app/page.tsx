@@ -4,21 +4,13 @@ import UserControl from "@/components/UserControl";
 
 export default function Home() {
   return (
-    <div className='h-screen w-screen'>
-    <div className='flex flex-row justify-between items-center px-4 w-full h-[10%]'>
-      <p className='flex h-full items-center text-2xl p-4'>Harmony Track</p>
-      <UserControl />
-    </div>
-    <div className='flex flex-col bg-gray-950 h-[80%] w-full p-6'>
-      <p className="p-2 pb-6 w-full text-center text-2xl">How Are You Today?</p>
-      <div className='flex h-full'>
-        <FeelingsWheel />
+    <div className='h-screen'>
+      <div className='flex flex-col bg-gray-950 h-full w-full p-6'>
+        <p className="p-2 pb-6 w-full text-center text-2xl">How Are You Today?</p>
+        <div className='flex h-full max-h-[640px]'>
+          <FeelingsWheel />
+        </div>
       </div>
     </div>
-    <div className='h-[10%]'>
-
-    </div>
-
-  </div>
   );
 }
