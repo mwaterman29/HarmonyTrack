@@ -1,34 +1,114 @@
 {
     "feelings": [
         {
-            "name": "bad",
-            "value": 25,
-            "parent": null
-        },
-        {
-            "name": "good",
+            "name": "Happy",
             "value": 75,
             "parent": null
         },
         {
-            "name": "great",
+            "name": "Just Happy",
+            "value": 60,
+            "parent": "Happy"
+        },
+        {
+            "name": "Excited",
+            "value": 80,
+            "parent": "Happy"
+        },
+        {
+            "name": "Content",
+            "value": 70,
+            "parent": "Happy"
+        },
+        {
+            "name": "Joyful",
             "value": 85,
-            "parent": "good"
+            "parent": "Happy"
         },
         {
-            "name": "fine",
+            "name": "Calm",
+            "value": 70,
+            "parent": null
+        },
+        {
+            "name": "Just Calm",
+            "value": 55,
+            "parent": "Calm"
+        },
+        {
+            "name": "Relaxed",
             "value": 65,
-            "parent": "good"
+            "parent": "Calm"
         },
         {
-            "name": "terrible",
-            "value": 15,
-            "parent": "bad"
+            "name": "Tranquil",
+            "value": 75,
+            "parent": "Calm"
         },
         {
-            "name": "sad",
+            "name": "Serene",
+            "value": 80,
+            "parent": "Calm"
+        },
+        {
+            "name": "Sad",
             "value": 35,
-            "parent": "bad"
+            "parent": null
+        },
+        {
+            "name": "Just Sad",
+            "value": 20,
+            "parent": "Sad"
+        },
+        {
+            "name": "Disappointed",
+            "value": 30,
+            "parent": "Sad"
+        },
+        {
+            "name": "Heartbroken",
+            "value": 15,
+            "parent": "Sad"
+        },
+        {
+            "name": "Angry",
+            "value": 45,
+            "parent": null
+        },
+        {
+            "name": "Just Angry",
+            "value": 30,
+            "parent": "Angry"
+        },
+        {
+            "name": "Frustrated",
+            "value": 40,
+            "parent": "Angry"
+        },
+        {
+            "name": "Irritated",
+            "value": 35,
+            "parent": "Angry"
+        },
+        {
+            "name": "Stressed",
+            "value": 40,
+            "parent": null
+        },
+        {
+            "name": "Just Stressed",
+            "value": 25,
+            "parent": "Stressed"
+        },
+        {
+            "name": "Overwhelmed",
+            "value": 30,
+            "parent": "Stressed"
+        },
+        {
+            "name": "Anxious",
+            "value": 35,
+            "parent": "Stressed"
         }
     ]
 }
