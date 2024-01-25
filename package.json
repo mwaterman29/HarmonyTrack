@@ -20,7 +20,8 @@
     "prisma": "^5.8.1",
     "react": "^18",
     "react-dom": "^18",
-    "react-radial-menu": "^1.0.0"
+    "react-radial-menu": "^1.0.0",
+    "react-type-animation": "^3.2.0"
   },
   "devDependencies": {
     "@types/node": "^20",
