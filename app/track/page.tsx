@@ -2,9 +2,13 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../api/auth/[...nextauth]/options";
 import Link from "next/link";
 
+import DateTimeDisplay from "@/components/DateTimeDisplay";
+
 const TrackDashboardPage = async () => {
 
     const session = await getServerSession(authOptions);
+
+
 
     if(!session || !session.user) 
     {
@@ -24,6 +28,7 @@ const TrackDashboardPage = async () => {
     return (
     <div>
         <h1>Track Dashboard</h1>
+        <DateTimeDisplay />
     </div>
     );
 }
