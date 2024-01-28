@@ -24,7 +24,7 @@ const HomePage = () => {
                 </div>
 
                 <p className="text-4xl p-4">Harmony Track</p>
-                <p className="text-2xl p-4">A cross-platform life tracking solution</p>
+                <p className="text-2xl p-4">A <a>pragmatic</a>, <a>opinionated</a>, <a>cross-platform</a> life tracking solution</p>
                 <Link
                     href='/track'
                     className="flex items-center justify-center text-2xl"
