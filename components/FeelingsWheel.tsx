@@ -105,6 +105,7 @@ function FeelingsWheel() {
                   onItemClick={handleSubMenuClick}
                   onDisplayClick={handleDisplayClick}
                   displayPosition="bottom"
+                  className={feeling.name.toLowerCase() + "-bg"}
                 >
                   {
                     subFeelings.map((subFeeling:any) => {

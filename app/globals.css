@@ -31,3 +31,23 @@ body {
     text-wrap: balance;
   }
 }
+
+.angry-bg > path {
+  fill: #ef4444;
+}
+
+.sad-bg > path {
+  fill: #2563eb;
+}
+
+.calm-bg > path {
+  fill: #c4b5fd;
+}
+
+.happy-bg > path {
+  fill: #22d3ee;
+}
+
+.stressed-bg > path {
+  fill: #881337;
+}

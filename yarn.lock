@@ -269,9 +269,9 @@
   integrity sha512-Jh4t/593gxs0lJZ/z3NnasKlplXT2f+4y/LZYuaKZW5KAaiVFL/fThhs+17EbUd53jUVJ0QudYCBGbN/psvaqg==
 
 "@spaceymonk/react-radial-menu@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@spaceymonk/react-radial-menu/-/react-radial-menu-2.0.1.tgz#961b5373edcce0fb82e37c41f2914fc36cad1ab4"
-  integrity sha512-ET1nMnTl+kC1bG5vo9zdSi9aijQtvbN7skTunH0kXoZh50J5APOmI8wKQ1y97hZYogrC54O6/yed8+N1DnqeIg==
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@spaceymonk/react-radial-menu/-/react-radial-menu-2.0.4.tgz#145334408cf7c05c7d499550cacf96d79a02ab80"
+  integrity sha512-Juha7jPcc8xM3V1cmAzoRCJz3+QFNrmEU4hoC2fxWeJtTBHtOtMRuWWGjz+fbbBr/bCtBWE8jy163gnEEe9/Vg==
 
 "@swc/helpers@0.5.2":
   version "0.5.2"
