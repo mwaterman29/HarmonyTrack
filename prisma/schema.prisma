@@ -45,6 +45,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   Feeling       Feeling[]
+  EatingDay     EatingDay[]
 }
 
 model VerificationToken {
@@ -69,4 +70,15 @@ enum FeelingStyle {
   WHEEL
   EMOJI
   INPUT
+}
+
+model EatingDay {
+  id        String      @id @default(cuid())
+  userId    String
+  date      DateTime    @default(now())
+  calories  Int
+  protein   Int
+  fat       Int
+  carbs     Int
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
