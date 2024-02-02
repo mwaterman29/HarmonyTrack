@@ -38,7 +38,7 @@ const TrackFood = () =>
                 setMacros({
                     ...macros,
                     protein: parseInt(e.target.value),
-                    calories: autoCalculateCals ? macros.carbs * 4 + parseInt(e.target.value) * 4 + macros.fat * 7 : macros.calories,
+                    calories: autoCalculateCals ? macros.carbs * 4 + parseInt(e.target.value) * 4 + macros.fat * 9 : macros.calories,
                 })
             }}/>
             </div>
@@ -48,7 +48,7 @@ const TrackFood = () =>
                 setMacros({
                     ...macros,
                     carbs: parseInt(e.target.value),
-                    calories: autoCalculateCals ? parseInt(e.target.value) * 4 + macros.protein * 4 + macros.fat * 7 : macros.calories,
+                    calories: autoCalculateCals ? parseInt(e.target.value) * 4 + macros.protein * 4 + macros.fat * 9 : macros.calories,
                 })
             }}/>
             </div>
@@ -58,7 +58,7 @@ const TrackFood = () =>
                 setMacros({
                     ...macros,
                     fat: parseInt(e.target.value),
-                    calories: autoCalculateCals ? macros.carbs * 4 + macros.protein * 4 + parseInt(e.target.value) * 7 : macros.calories,
+                    calories: autoCalculateCals ? macros.carbs * 4 + macros.protein * 4 + parseInt(e.target.value) * 9 : macros.calories,
                 })
             }}/>
             </div>
