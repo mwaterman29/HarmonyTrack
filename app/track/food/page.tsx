@@ -1,6 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { startOfDay, endOfDay } from "date-fns";
+import prisma from "@/app/prisma";
+import { useSession } from "next-auth/react";
 
 const TrackFood = () =>
 {
@@ -12,6 +15,24 @@ const TrackFood = () =>
         fat: 0,
     });
 
+    const { data: session, status } = useSession()
+
+    function submitMacros()
+    {
+        fetch('/api/food/macros', {
+            method: 'POST',
+            body: JSON.stringify({
+                date: new Date(),
+                calories: macros.calories,
+                protein: macros.protein,
+                carbs: macros.carbs,
+                fat: macros.fat,
+            })
+        }).then(async (response) => {
+            const json = await response.json();
+            console.log(json);
+        });
+    }
 
     return (
         <div className="text-white p-4">
