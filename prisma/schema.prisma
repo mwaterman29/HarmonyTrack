@@ -46,6 +46,8 @@ model User {
   sessions      Session[]
   Feeling       Feeling[]
   EatingDay     EatingDay[]
+  Food          Food[]
+  FoodEaten     FoodEaten[]
 }
 
 model VerificationToken {
@@ -81,4 +83,27 @@ model EatingDay {
   fat       Int
   carbs     Int
   user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  FoodEaten FoodEaten[]
+}
+
+model Food {
+  id        String      @id @default(cuid())
+  name      String
+  calories  Int
+  protein   Int
+  fat       Int
+  carbs     Int
+  userId    String
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  FoodEaten FoodEaten[]
+}
+
+model FoodEaten {
+  id          String    @id @default(cuid())
+  userId      String
+  foodId      String
+  eatingDayId String
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  food        Food      @relation(fields: [foodId], references: [id], onDelete: Cascade)
+  eatingDay   EatingDay @relation(fields: [eatingDayId], references: [id], onDelete: Cascade)
 }
