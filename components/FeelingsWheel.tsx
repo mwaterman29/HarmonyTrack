@@ -114,6 +114,7 @@ function FeelingsWheel() {
                           key={subFeeling.name}
                           data={subFeeling.name}
                           onItemClick={handleItemClick}
+                          className={feeling.name.toLowerCase() + "-bg"}
                         >
                           {<p key={subFeeling.name + "_display"}>{subFeeling.name}</p>}
                         </MenuItem>
