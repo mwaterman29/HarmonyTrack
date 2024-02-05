@@ -5,6 +5,16 @@ import { startOfDay, endOfDay } from "date-fns";
 import prisma from "@/app/prisma";
 import { useSession } from "next-auth/react";
 
+type Food = {
+    id: number;
+    name: string;
+    calories: number;
+    protein: number;
+    carbs: number;
+    fat: number;
+    lastUsed: Date;
+}
+
 const TrackFood = () =>
 {
     const [autoCalculateCals, setAutoCalculateCals] = useState(false);
@@ -22,6 +32,9 @@ const TrackFood = () =>
         fat: 0,
     });
     const [addFoodName, setAddFoodName] = useState('');
+
+    const [existingFoods, setExistingFoods] = useState<Food[]>([]);
+    const [todaysFoods, setTodaysFoods] = useState<Food[]>([]);
 
     const { data: session, status } = useSession()
 
@@ -43,6 +56,12 @@ const TrackFood = () =>
                     fat: json[0].fat,
                 });
             }
+        });
+
+        //-Existing foods
+        fetch(`/api/food`).then(async (response) => {
+            const json = await response.json();
+            setExistingFoods(json);
         });
 
     }, [status]);
@@ -86,7 +105,8 @@ const TrackFood = () =>
         <div className="text-white p-4">
             <p className="text-3xl">Track Eating and Calories</p>
 
-            <div className="flex flex-row">
+            <div className="grid grid-cols-3 gap-2">
+                { /* Manual Entry for Food Tracking */}
                 <div className="flex flex-col">
                     <div className="flex flex-row px-4">
                     <input type="checkbox" checked={autoCalculateCals} onChange={() => setAutoCalculateCals(!autoCalculateCals)} />
@@ -134,10 +154,10 @@ const TrackFood = () =>
                     </div>
                 </div>
 
-                <div className="pl-4">
-                    <p>Add Foods</p>
+                { /* Create a new Food */}
+                <div className="pl-4 bg-gray-700">
+                    <p>Add New Food</p>
                     <div className="flex flex-col">
-                        <p>Add Food</p>
                         <div className="flex flex-row py-1">
                             <p className="pr-4">Food Name: </p>
                             <input type="text" className="text-black" value={addFoodName} onChange={(e) => {setAddFoodName(e.target.value)}} />
@@ -149,7 +169,7 @@ const TrackFood = () =>
                             })
                             }}/>
                         </div>
-                        <div className="flex flex-row py-1">
+                        <div className="flex flex-col py-1">
                             <p className="pr-4">Protein: </p>
                             <input type="number" className="text-black" min={0} value={addFoodMacros.protein} onChange={(e) => {
                             setAddFoodMacros({
@@ -181,10 +201,35 @@ const TrackFood = () =>
                     </div>
 
                 </div>
+                
+                { /* Record eaten foods today */}
+                <div className="flex flex-col">
+                    <p>Add From Existing Foods</p>
+                    {existingFoods.length > 0 && 
+                        <select className="text-black"
+                        onChange={() => {
+
+                        }}>
+                                {existingFoods.map((food) => (
+                                    <option key={food.id} value={food.name}>
+                                        {food.name}
+                                    </option>
+                                ))}
+                        </select>
+                    }
+                    {
+                        todaysFoods.map((food) => (
+                            <div key={food.id} className="flex flex-row">
+                                <p>{food.name}</p>
+                                <p>{food.calories}</p>
+                            </div>
+                        ))
+                    }
+
+                </div>
+
             </div>
 
-
-            
         </div>
     )
 }
