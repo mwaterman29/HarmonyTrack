@@ -95,6 +95,7 @@ model Food {
   fat       Int
   carbs     Int
   userId    String
+  lastUsed  DateTime    @default(now())
   user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   FoodEaten FoodEaten[]
 }
