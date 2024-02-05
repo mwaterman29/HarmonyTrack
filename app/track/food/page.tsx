@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { startOfDay, endOfDay } from "date-fns";
 import prisma from "@/app/prisma";
 import { useSession } from "next-auth/react";
@@ -16,6 +16,28 @@ const TrackFood = () =>
     });
 
     const { data: session, status } = useSession()
+
+    useEffect(() => {
+        if(status !== "authenticated")
+            return;
+
+        //Fetch:
+
+        //-Any previous macro entry for the day
+        fetch(`/api/food/macros?date=${new Date()}`).then(async (response) => {
+            const json = await response.json();
+            if(json && json.length > 0)
+            {
+                setMacros({
+                    calories: json[0].calories,
+                    protein: json[0].protein,
+                    carbs: json[0].carbs,
+                    fat: json[0].fat,
+                });
+            }
+        });
+
+    }, [status]);
 
     function submitMacros()
     {
@@ -83,12 +105,6 @@ const TrackFood = () =>
                 })
             }}/>
             </div>
-
-
-
-
-
-
         </div>
     )
 }

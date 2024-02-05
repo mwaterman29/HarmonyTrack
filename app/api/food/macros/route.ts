@@ -2,9 +2,10 @@ import { startOfDay, endOfDay } from 'date-fns';
 import { getServerSession } from "next-auth/next"
 import { authOptions } from "../../auth/[...nextauth]/options";
 import prisma from "@/app/prisma";
+import { NextRequest } from 'next/server';
 
+const createOrUpdateEatingDay = async (request: Request) => {
 
-export const createOrUpdateEatingDay = async (request: Request) => {
     const body = await request.json()
     const { fat, carbs, protein, calories } = body;
     const today = new Date();
@@ -72,3 +73,43 @@ export const createOrUpdateEatingDay = async (request: Request) => {
 
     return res;
 };
+
+const getEatingDay = async (request: NextRequest) => {
+    const dateString = request.nextUrl.searchParams.get('date');
+
+    if(!dateString)
+    {
+        return new Response("Bad request.",
+        {
+            status: 400,
+        });
+    }
+
+    const date = new Date(dateString);
+
+    let res;
+    
+    await prisma.eatingDay.findFirst({
+        where: {
+            date: {
+                gte: startOfDay(date),
+                lte: endOfDay(date),
+            },
+        },
+    }).then((entry) => {
+        res = new Response(JSON.stringify(entry),
+        {
+            status: 200,
+        });
+    }).catch((error) => {
+        console.error('Error getting eating day entry:', error);
+        res = new Response("Internal Server Error",
+        {
+            status: 500,
+        });
+    });
+
+    return res;
+};
+
+export { createOrUpdateEatingDay as POST, getEatingDay as GET}
