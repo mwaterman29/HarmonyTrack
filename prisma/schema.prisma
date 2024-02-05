@@ -48,6 +48,7 @@ model User {
   EatingDay     EatingDay[]
   Food          Food[]
   FoodEaten     FoodEaten[]
+  Goal          Goal[]
 }
 
 model VerificationToken {
@@ -106,4 +107,23 @@ model FoodEaten {
   user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   food        Food      @relation(fields: [foodId], references: [id], onDelete: Cascade)
   eatingDay   EatingDay @relation(fields: [eatingDayId], references: [id], onDelete: Cascade)
+}
+
+enum GoalMagnitude {
+  SMALL
+  STANDARD
+  LONGTERM
+  LIFETIME
+}
+
+model Goal {
+  id          String        @id @default(cuid())
+  userId      String
+  textGoal    String
+  numberGoal  Float?
+  setOn       DateTime
+  completed   Boolean
+  completedOn DateTime
+  magnitude   GoalMagnitude
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
