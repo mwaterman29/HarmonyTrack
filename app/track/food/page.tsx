@@ -64,6 +64,12 @@ const TrackFood = () =>
             setExistingFoods(json);
         });
 
+        //-What was alr eaten today
+        fetch(`/api/food/eat`).then(async (response) => {
+            const json = await response.json();
+            setTodaysFoods(json);
+        });
+
     }, [status]);
 
     function submitMacros()
@@ -98,6 +104,7 @@ const TrackFood = () =>
         }).then(async (response) => {
             const json = await response.json();
             console.log(json);
+            todaysFoods.push(json);
         });
     }
 
