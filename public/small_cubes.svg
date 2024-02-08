@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="52.80127mm"
+   height="61.061195mm"
+   viewBox="0 0 52.80127 61.061195"
+   version="1.1"
+   id="svg1"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0.25579796,-235.92106)">
+    <g
+       id="g118">
+      <path
+         d="m 26.19821,235.92107 26.347263,15.2116 v 30.57637 L 26.19821,266.49744 Z"
+         style="fill:#e2ff2a;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         id="path105" />
+      <path
+         d="m -0.25579795,251.1943 v 30.57636 L 26.19821,266.49744 v -30.57637 z"
+         style="fill:#353564;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         id="path106" />
+      <path
+         d="M -0.25579795,281.77066 26.091465,296.98226 52.545473,281.70904 26.19821,266.49744 Z"
+         style="fill:#afafde;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         id="path107" />
+      <path
+         d="M -0.25579795,251.1943 26.091465,266.4059 52.545473,251.13267 26.19821,235.92107 Z"
+         style="fill:#4d4d9f;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         id="path108" />
+      <path
+         d="m 26.091465,266.4059 v 30.57636 l 26.454008,-15.27322 v -30.57637 z"
+         style="fill:#d7d7ff;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         id="path109" />
+      <path
+         d="M -0.25579795,251.1943 26.091465,266.4059 v 30.57636 l -26.34726295,-15.2116 z"
+         style="fill:#8686bf;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         id="path110" />
+      <path
+         d="M -0.25579795,251.1943 26.091465,266.4059 v 30.57636 l -26.34726295,-15.2116 z"
+         style="fill:#8686bf;fill-rule:evenodd;stroke:none;stroke-linejoin:round"
+         id="path111" />
+    </g>
+  </g>
+</svg>
